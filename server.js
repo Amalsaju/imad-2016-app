@@ -9,17 +9,33 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articleOne = {
-    title: 'Article One | Leo',
-    heading: 'Article One',
-    date: 'Sept 5, 2016',
-    content:    `
-        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
-        </p>
-        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
-        </p>
-        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
-        </p>`    
+var articles = {
+        articleOne: {
+        title: 'Article One | Leo',
+        heading: 'Article One',
+        date: 'Sept 5, 2016',
+        content:    `
+            <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+            </p>
+            <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+            </p>
+            <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+            </p>`    
+    },
+        articleTwo: {
+            title: 'Article Two | Leo',
+            heading: 'Article Two',
+            date: 'Sept 5, 2016',
+            content:    `
+                <p>This is the content of the second article.</p>` 
+        },
+        articleThree: {
+        title: 'Article Three | Leo',
+        heading: 'Article Three',
+        date: 'Sept 5, 2016',
+        content:    `
+            <p>This is the content of the third article.</p>` 
+        }
 };
 
 app.get('/article-one', function (req, res) {
