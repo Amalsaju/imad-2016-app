@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 });
 
 var articles = {
-        articleOne: {
+        'article-one': {
         title: 'Article One | Leo',
         heading: 'Article One',
         date: 'Sept 5, 2016',
@@ -22,14 +22,14 @@ var articles = {
             <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
             </p>`    
     },
-        articleTwo: {
+        'article-two': {
             title: 'Article Two | Leo',
             heading: 'Article Two',
             date: 'Sept 5, 2016',
             content:    `
                 <p>This is the content of the second article.</p>` 
         },
-        articleThree: {
+        'article-three': {
         title: 'Article Three | Leo',
         heading: 'Article Three',
         date: 'Sept 5, 2016',
@@ -38,17 +38,50 @@ var articles = {
         }
 };
 
-app.get('/article-one', function (req, res) {
-    res.send('Article one will be served here');
+function createTemplate (data)  {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    var htmlTemplate = `
+    <html>
+        <head>
+            <title>
+                ${title}
+            </title>
+            <meta name = "viewport" content = "width = device-width initial-scale = 1" />
+            <link href = "/ui/stlye.css" rel = "stylesheet" />
+        </head>
+        <body>
+            <div class = "container">
+                <div>
+                    <a href "/">Home</a>
+                </div>
+                <hr/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+    return htmlTemplate;
+}
+            
+    
+
+app.get('/:articleName', function (req, res) {
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
-    res.send('Article two will be served here');
-});
-
-app.get('/article-three', function (req, res) {
-    res.send('Article three will be served here');
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
