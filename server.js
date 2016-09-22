@@ -9,6 +9,19 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var articleOne = {
+    title: 'Article One | Leo',
+    heading: 'Article One',
+    date: 'Sept 5, 2016',
+    content:    `
+        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+        </p>
+        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+        </p>
+        <p>This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.This is the content of the first article.
+        </p>`    
+};
+
 app.get('/article-one', function (req, res) {
     res.send('Article one will be served here');
 });
