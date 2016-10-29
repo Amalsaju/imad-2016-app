@@ -1,1 +1,47 @@
-blah blah blah
+<!doctype html>
+<html>
+    <head>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class ="divider">
+            <hr>
+            
+                <div>
+                    <a href="#" onMouseOver="return changeImage()" onMouseOut= "return changeImageBack()"
+                    onMouseDown="return handleMDown()" onMouseUp="return handleMUp()"
+                        ><img
+                        name="jsbutton" src="buyit15.jpg" width="110" height="28" border="0"
+                    alt="javascript button"></a>
+ 
+
+
+                </div>
+                
+            
+                <div>
+                    <button id  = 'test1' onclick="window.location.href='/page2'">Wiz tower</button>
+                </div>
+                
+                
+                <div>
+                    <button id  = 'test2' onclick="window.location.href='/page3'">Wiz tower</button>
+                </div>
+            
+            <hr>
+            
+        </div>
+        <script type="text/javascript" src="/ui/main.js">
+        function changeImage()
+        {
+        document.images["jsbutton"].src= "buyit15u.jpg";
+        return true;
+        }
+        function changeImageBack()
+        {
+         document.images["jsbutton"].src = "buyit15.jpg";
+         return true;
+        }
+        </script>
+    </body>
+</html>
